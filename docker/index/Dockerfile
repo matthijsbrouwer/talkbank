@@ -10,8 +10,13 @@ ENV MTAS_VERSION 7.1.0.1
 
 USER root
 
-RUN mkdir /data; mkdir /data/solr; mkdir /data/solr/lib
-
+RUN mkdir /data && \
+    mkdir /data/solr && \
+    mkdir /data/solr/lib && \
+    mkdir /data/resources
+    
+ADD http://central.maven.org/maven2/nl/knaw/meertens/mtas/mtas/$MTAS_VERSION/mtas-$MTAS_VERSION.jar /data/solr/lib/
+    
 WORKDIR "/data" 
 
 RUN apt-get update && apt-get install -y locales lsof software-properties-common && \
@@ -24,17 +29,18 @@ RUN add-apt-repository -y ppa:webupd8team/java && \
     
 RUN apt-get install -y wget unzip
             
-RUN wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -P "data-xml" --cut-dirs=1 -R "index.html*" "http://childes.talkbank.org/data-xml/Celtic/" && \
+RUN cd /data/resources && \
+    wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -P "data-xml" --cut-dirs=1 -R "index.html*" "http://childes.talkbank.org/data-xml/Celtic/" && \
     wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -P "data-xml" --cut-dirs=1 -R "index.html*" "http://childes.talkbank.org/data-xml/Dutch/" 
 
 
-RUN find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; find data-xml -name "*\.xml" -exec gzip {} \; ; rm "$filename" ; done;
+RUN cd /data/resources && \
+    find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; find data-xml -name "*\.xml" -exec gzip {} \; ; rm "$filename" ; done;
 
-RUN wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data.cmdi" && \
+RUN cd /data/resources && \
+    wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data.cmdi" && \
     wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data/Celtic/" "http://alpha.talkbank.org/data-cmdi/childes-data/Celtic.cmdi" && \
     wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data/Dutch/" "http://alpha.talkbank.org/data-cmdi/childes-data/Dutch.cmdi"
-
-ADD http://central.maven.org/maven2/nl/knaw/meertens/mtas/mtas/$MTAS_VERSION/mtas-$MTAS_VERSION.jar /data/solr/lib/
 
 RUN apt-get install -y python-software-properties apache2 php libapache2-mod-php php-cli curl php-curl php-xml subversion
 
@@ -87,7 +93,7 @@ RUN service apache2 stop && \
     printf "echo \"  Mtas release $MTAS_VERSION\"\n" >> /start.sh && \
     printf "echo \"========================================================================\"\n" >> /start.sh && \
     printf "echo\n" >> /start.sh && \
-    printf "service solr start\nservice apache2 start\n" >> /start.sh && \
+    printf "service solr start\nsleep 5\nservice apache2 start\n" >> /start.sh && \
     chmod 755 /start.sh 
     
 RUN cd /var/www/html/ && \
