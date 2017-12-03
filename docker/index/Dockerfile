@@ -91,7 +91,7 @@ RUN service apache2 stop && \
     chmod 755 /start.sh 
     
 RUN cd /var/www/html/ && \
-    svn export https://github.com/matthijsbrouwer/talkbank/trunk/docker/childes/index/archive/ childes.talkbank.org
+    svn export https://github.com/matthijsbrouwer/talkbank/trunk/docker/index/archive/ childes.talkbank.org
 
 RUN cd /data/solr/ && \
     svn export https://github.com/matthijsbrouwer/talkbank/trunk/index/solr/conf/ conf
