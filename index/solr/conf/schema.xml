@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="talkbank" version="1.6">
+
+	<field name="_version_" type="talkbank_long" indexed="true"
+		stored="true" />
+
+	<!-- Id -->
+	<field name="id" type="talkbank_string" required="true"
+		multiValued="false" indexed="true" stored="true" />
+		
+	<!-- Type -->
+  <field name="type" type="talkbank_string" required="true"
+    multiValued="false" indexed="true" stored="true" />
+
+	<!-- Collection -->
+	<field name="collectionId" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="collectionName" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+
+	<!-- License -->
+	<field name="distributionType" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="licenseName" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="licenseURL" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+	<!-- Session -->
+	<field name="name" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="title" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="date" type="talkbank_date" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+	<!-- Location -->
+	<field name="locationContinent" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="locationCountry" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="locationRegion" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="locationAddress" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+	<!-- Project -->
+	<field name="projectName" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="projectTitle" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="projectId" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="projectContactName" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="projectContactAddress" type="talkbank_text"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="projectContactEmail" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="projectContactOrganisation" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="projectDescription" type="talkbank_text" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+	<!-- Content -->
+	<field name="contentGenre" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="contentSubGenre" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="contentTask" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="contentModalities" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="contentSubject" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+
+	<!-- CommunicationContext -->
+	<field name="contentCommunicationContextInteractivity" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="contentCommunicationContextPlanningType" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="contentCommunicationContextInvolvement" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="contentCommunicationContextSocialContext" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<field name="contentCommunicationContextEventStructure" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+
+	<!-- Content Languages -->
+	<field name="contentLanguageId" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="contentLanguageName" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<field name="contentLanguageDominant" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<field name="contentLanguageSource" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<field name="contentLanguageTarget" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+
+	<!-- Actors -->
+	<field name="actorRole" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorName" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorFullName" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorCode" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorFamilySocialRole" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<field name="actorEthnicGroup" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorAge" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorBirthDate" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorSex" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorEducation" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorAnonymized" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorContactName" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorContactAddress" type="talkbank_text" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorContactEmail" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorContactOrganisation" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<field name="actorLanguageId" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorLanguageName" type="talkbank_string" required="false"
+		multiValued="true" indexed="true" stored="true" />
+	<field name="actorLanguageMotherTongue" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<field name="actorLanguagePrimaryLanguage" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+
+
+	<!-- Actor -->
+	<dynamicField name="actorRole_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorName_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorFullName_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorCode_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorFamilySocialRole_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorEthnicGroup_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorAge_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorBirthDate_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorSex_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorEducation_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorAnonymized_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorContactName_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorContactAddress_*" type="talkbank_text"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorContactEmail_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorContactOrganisation_*" type="talkbank_string"
+		required="false" multiValued="false" indexed="true" stored="true" />
+	<dynamicField name="actorLanguageId_*" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<dynamicField name="actorLanguageName_*" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<dynamicField name="actorLanguageMotherTongue_*" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+	<dynamicField name="actorLanguagePrimaryLanguage_*" type="talkbank_string"
+		required="false" multiValued="true" indexed="true" stored="true" />
+
+	<!-- Access -->
+	<field name="accessAvailability" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="accessOwner" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="accessPublisher" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+	<!-- Description -->
+	<field name="description" type="talkbank_text" required="false"
+		multiValued="false" indexed="true" stored="true" />
+
+	<!-- Mtas -->
+	<field name="resource_mtas" type="talkbank_mtas" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="resource_mtas_type" type="talkbank_string" required="false"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="resource_mtas_error" type="talkbank_string"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="resource_mtas_numberOfTokens" type="talkbank_int"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="resource_mtas_numberOfPositions" type="talkbank_int"
+		multiValued="false" indexed="true" stored="true" />
+	<field name="resource_mtas_size" type="talkbank_int" multiValued="false"
+		indexed="true" stored="true" />
+	<field name="resource_mtas_prefix" type="talkbank_string"
+		indexed="true" stored="true" multiValued="true" />
+
+	<!-- Unique Key -->
+	<uniqueKey>id</uniqueKey>
+
+	<!-- FieldTypes -->
+	<fieldType name="talkbank_string" class="solr.StrField"
+		sortMissingLast="true" />
+	<fieldType name="talkbank_uuid" class="solr.StrField"
+		sortMissingLast="true" />
+	<fieldType name="talkbank_boolean" class="solr.BoolField"
+		sortMissingLast="true" docValues="true" />
+	<fieldType name="talkbank_int" class="solr.IntPointField"
+		docValues="true" />
+	<fieldType name="talkbank_long" class="solr.LongPointField"
+		docValues="true" />
+	<fieldType name="talkbank_date" class="solr.DatePointField"
+		docValues="true" />
+	<fieldtype name="talkbank_binary" class="solr.BinaryField" />
+
+	<fieldType name="talkbank_text" class="solr.TextField"
+		positionIncrementGap="100">
+		<analyzer type="index">
+			<tokenizer class="solr.StandardTokenizerFactory" />
+			<filter class="solr.LowerCaseFilterFactory" />
+		</analyzer>
+		<analyzer type="query">
+			<tokenizer class="solr.StandardTokenizerFactory" />
+			<filter class="solr.LowerCaseFilterFactory" />
+		</analyzer>
+	</fieldType>
+
+	<fieldType name="talkbank_mtas_example_config" class="solr.TextField"
+		postingsFormat="MtasCodec">
+		<analyzer type="index">
+			<charFilter class="mtas.analysis.util.MtasCharFilterFactory"
+				config="mtas.xml" />
+			<tokenizer class="mtas.analysis.util.MtasTokenizerFactory"
+				config="mtas.xml" />
+		</analyzer>
+	</fieldType>
+
+	<fieldType name="talkbank_mtas" class="mtas.solr.schema.MtasPreAnalyzedField"
+		followIndexAnalyzer="talkbank_mtas_example_config"
+		defaultConfiguration="chat" configurationFromField="resource_mtas_type"
+		setNumberOfTokens="resource_mtas_numberOfTokens" setNumberOfPositions="resource_mtas_numberOfPositions"
+		setSize="resource_mtas_size" setError="resource_mtas_error" setPrefix="resource_mtas_prefix"
+		postingsFormat="MtasCodec">
+		<analyzer type="query">
+			<tokenizer class="solr.WhitespaceTokenizerFactory" />
+			<filter class="mtas.analysis.util.MtasPrefixTokenFilterFactory"
+				prefix="t" />
+		</analyzer>
+	</fieldType>
+
+</schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mtas>
+  <configurations type="mtas.analysis.util.MtasTokenizerFactory">
+    <configuration name="childes" file="mtas/childes.xml" />    
+  </configurations>
+  <configurations type="mtas.analysis.util.MtasCharFilterFactory">
+    <configuration name="childes" type="url" prefix="http://childes.talkbank.org/data-orig-xml/" postfix="" />
+    <!-- <configuration name="childes" type="file" prefix="/data/resources/data-xml/" postfix="" />  -->    
+  </configurations>
+</mtas>
