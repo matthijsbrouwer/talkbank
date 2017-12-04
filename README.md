@@ -10,5 +10,5 @@ docker run -t -i -p 8080:80 --name talkbank-childes-index matthijsbrouwer/talkba
 ```
 
 This will provide a website on port 8080 on the ip of your docker host containing a Solr instance on /solr/
-with a core containing the constructed index, and a configured [Broker](https://meertensinstituut.github.io/broker/) instance on /broker/.
+with a core containing the constructed index, and a configured [Broker](https://meertensinstituut.github.io/broker/) instance on /broker/. The administrator account can be used with both `admin` / `admin` as login / password.
 
