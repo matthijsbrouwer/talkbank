@@ -2,7 +2,7 @@
 
 Scripts to create a Solr/[Mtas](https://meertensinstituut.github.io/mtas/) index by harvesting and processing [TalkBank](https://talkbank.org/) CMDI and Chat-XML resources.
 
-A [docker](https://hub.docker.com/r/meertensinstituut/broker/) image creating an index for part of the TalkBank [Childes](http://childes.talkbank.org/) collection is available. To build and run
+A [docker](https://hub.docker.com/r/matthijsbrouwer/talkbank-childes-index/) image creating an index for part of the TalkBank [Childes](http://childes.talkbank.org/) collection is available. To build and run
 
 ```console
 docker pull matthijsbrouwer/talkbank-childes-index
