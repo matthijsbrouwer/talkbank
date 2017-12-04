@@ -13,7 +13,8 @@ USER root
 RUN mkdir /data && \
     mkdir /data/solr && \
     mkdir /data/solr/lib && \
-    mkdir /data/resources
+    mkdir /data/resources && \
+    mkdir /data/composer
     
 ADD http://central.maven.org/maven2/nl/knaw/meertens/mtas/mtas/$MTAS_VERSION/mtas-$MTAS_VERSION.jar /data/solr/lib/
     
@@ -31,7 +32,7 @@ RUN apt-get install -y wget unzip
             
 RUN cd /data/resources && \
     wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -P "data-xml" --cut-dirs=1 -R "index.html*" "http://childes.talkbank.org/data-xml/Celtic/" && \
-    wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -P "data-xml" --cut-dirs=1 -R "index.html*" "http://childes.talkbank.org/data-xml/Dutch/" 
+    wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -P "data-xml" --cut-dirs=1 -R "index.html*" "http://childes.talkbank.org/data-xml/French/" 
 
 
 RUN cd /data/resources && \
@@ -40,7 +41,7 @@ RUN cd /data/resources && \
 RUN cd /data/resources && \
     wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data.cmdi" && \
     wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data/Celtic/" "http://alpha.talkbank.org/data-cmdi/childes-data/Celtic.cmdi" && \
-    wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data/Dutch/" "http://alpha.talkbank.org/data-cmdi/childes-data/Dutch.cmdi"
+    wget -e robots=off -r -l inf --no-remove-listing -nH --no-parent -R "index.html*" "http://alpha.talkbank.org/data-cmdi/childes-data/French/" "http://alpha.talkbank.org/data-cmdi/childes-data/French.cmdi"
 
 RUN apt-get install -y python-software-properties apache2 php libapache2-mod-php php-cli curl php-curl php-xml subversion
 
@@ -111,5 +112,14 @@ RUN service solr start && service apache2 start && sleep 5 && \
     svn export https://github.com/matthijsbrouwer/talkbank/trunk/index/scripts/ scripts && \
     cd scripts && \
     php create.php "http://alpha.talkbank.org/data-cmdi/childes-data.cmdi" "childes" "http://localhost/solr/" "/data/resources/data-cmdi"
+
+#RUN apt-get install php-curl php-sqlite3 php-mbstring && \
+#    cd /data/composer && wget -O installer https://getcomposer.org/installer && \
+#    php installer && mv composer.phar /usr/local/bin/composer && \
+#    cd /var/www/html && \
+#    svn export https://github.com/meertensinstituut/broker/trunk/src/ broker && \
+#    cd /var/www/html/broker && composer install && chmod 777 /var/www/html/broker/cache &&\
+#    cd /var/www/html/broker/config && \
+#    svn export https://github.com/matthijsbrouwer/talkbank/trunk/docker/index/broker/config.inc.php
 
 CMD bash -C '/start.sh'; 'bash'
