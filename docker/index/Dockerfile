@@ -113,13 +113,13 @@ RUN service solr start && service apache2 start && sleep 5 && \
     cd scripts && \
     php create.php "http://alpha.talkbank.org/data-cmdi/childes-data.cmdi" "childes" "http://localhost/solr/" "/data/resources/data-cmdi"
 
-#RUN apt-get install php-curl php-sqlite3 php-mbstring && \
-#    cd /data/composer && wget -O installer https://getcomposer.org/installer && \
-#    php installer && mv composer.phar /usr/local/bin/composer && \
-#    cd /var/www/html && \
-#    svn export https://github.com/meertensinstituut/broker/trunk/src/ broker && \
-#    cd /var/www/html/broker && composer install && chmod 777 /var/www/html/broker/cache &&\
-#    cd /var/www/html/broker/config && \
-#    svn export https://github.com/matthijsbrouwer/talkbank/trunk/docker/index/broker/config.inc.php
+RUN apt-get install -y php-curl php-sqlite3 php-mbstring && \
+    cd /data/composer && wget -O installer https://getcomposer.org/installer && \
+    php installer && mv composer.phar /usr/local/bin/composer && \
+    cd /var/www/html && \
+    svn export https://github.com/meertensinstituut/broker/trunk/src/ broker && \
+    cd /var/www/html/broker && composer install && chmod 777 /var/www/html/broker/cache &&\
+    cd /var/www/html/broker/config && \
+    svn export https://github.com/matthijsbrouwer/talkbank/trunk/docker/index/broker/config.inc.php
 
 CMD bash -C '/start.sh'; 'bash'
